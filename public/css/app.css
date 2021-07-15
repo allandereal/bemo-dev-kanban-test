@@ -81,3 +81,20 @@ body {
 .card-modal > div > h4 {
   display: inline-block;
 }
+
+#app {
+  position: relative;
+}
+
+#db-export-btn {
+  position: absolute;
+  bottom: 5rem;
+  right: 2rem;
+}
+#db-export-btn a {
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  color: #2d3748;
+  text-decoration: none;
+}

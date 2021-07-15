@@ -6,7 +6,7 @@
                 <button @click="emitDeleteColumnEvent()">+</button>
             </div>
             <div class="column-body">
-                <draggable v-model="cards" group="people" @start="drag=true" @end="drag=false">
+                <draggable v-model="cards" group="cards" @start="drag=true" @end="drag=false">
                     <card v-for="card in cards" :key="card.id" :board-card="card"></card>
                 </draggable>
             </div>

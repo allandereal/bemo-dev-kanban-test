@@ -6765,7 +6765,7 @@ var render = function() {
           _c(
             "draggable",
             {
-              attrs: { group: "people" },
+              attrs: { group: "cards" },
               on: {
                 start: function($event) {
                   _vm.drag = true

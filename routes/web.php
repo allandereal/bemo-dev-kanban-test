@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/db-export', [\App\Http\Controllers\HomeController::class, 'databaseExport'])->name('db_export');
