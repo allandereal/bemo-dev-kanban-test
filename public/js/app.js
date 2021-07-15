@@ -51,8 +51,22 @@ __webpack_require__.r(__webpack_exports__);
   computed: {},
   data: function data() {
     return {
-      message: 'This is a board.'
+      columns: [{
+        id: 1,
+        name: 1
+      }, {
+        id: 2,
+        name: 2
+      }]
     };
+  },
+  created: function created() {
+    this.fetchColumns();
+  },
+  methods: {
+    fetchColumns: function fetchColumns() {
+      console.log(1234);
+    }
   },
   components: {
     Column: _views_column_vue__WEBPACK_IMPORTED_MODULE_0__.default
@@ -91,6 +105,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _views_card_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../views/card.vue */ "./resources/js/views/card.vue");
 //
 //
 //
@@ -102,8 +117,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "column"
+  name: "column",
+  components: {
+    Card: _views_card_vue__WEBPACK_IMPORTED_MODULE_0__.default
+  }
 });
 
 /***/ }),
@@ -465,7 +491,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "board" }, [_c("column")], 1)
+  return _c(
+    "div",
+    { staticClass: "board" },
+    _vm._l(_vm.columns, function(column) {
+      return _c("column", { key: column.id })
+    }),
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -489,7 +522,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card" })
+  return _c("div", { staticClass: "card" }, [_vm._v("I am a card")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -513,23 +546,38 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "column-wrapper" }, [
+    _c("div", { staticClass: "column" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "column-body" },
+        [_c("card"), _vm._v(" "), _c("card")],
+        1
+      ),
+      _vm._v(" "),
+      _vm._m(1)
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "column" }, [
-      _c("div", [
-        _c("span", [_vm._v("fefdfdf")]),
-        _vm._v(" "),
-        _c("span", [_vm._v("+")])
-      ]),
+    return _c("div", { staticClass: "column-title" }, [
+      _c("span", [_vm._v("title")]),
       _vm._v(" "),
-      _c("div", [_vm._v("jisdsdsdsdsk")]),
-      _vm._v(" "),
-      _c("div", [_vm._v("jikdsds")])
+      _c("button", [_vm._v("+")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "column-footer" }, [
+      _c("button", [_vm._v("+ Add card")])
     ])
   }
 ]
