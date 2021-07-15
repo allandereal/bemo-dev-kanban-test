@@ -16,7 +16,7 @@
                     <textarea v-model="newCardTitle" placeholder="Card title"></textarea>
                     <div>
                         <button @click="saveNewCard">Save</button>
-                        <button @click="toggleAddCard">x</button>
+                        <button @click="toggleAddCard">+</button>
                     </div>
                 </div>
             </div>

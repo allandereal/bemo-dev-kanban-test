@@ -1918,7 +1918,7 @@ var default_layout = "default";
   computed: {},
   data: function data() {
     return {
-      message: 'Welcome to my Kanban board with Vue.js.'
+      message: 'Welcome to my Kanban board with Laravel, Vue.js & SCSS.'
     };
   }
 });
@@ -6590,7 +6590,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n  " + _vm._s(_vm.message) + "\n")])
+  return _c("div", { staticClass: "heading" }, [
+    _vm._v("\n  " + _vm._s(_vm.message) + "\n")
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -6682,7 +6684,7 @@ var render = function() {
               _vm._v("Save")
             ]),
             _vm._v(" "),
-            _c("button", { on: { click: _vm.toggleAddColumn } }, [_vm._v("x")])
+            _c("button", { on: { click: _vm.toggleAddColumn } }, [_vm._v("+")])
           ]
         )
       ])
@@ -6847,7 +6849,7 @@ var render = function() {
                 _vm._v("Save")
               ]),
               _vm._v(" "),
-              _c("button", { on: { click: _vm.toggleAddCard } }, [_vm._v("x")])
+              _c("button", { on: { click: _vm.toggleAddCard } }, [_vm._v("+")])
             ])
           ]
         )

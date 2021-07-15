@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="heading">
     {{message}}
   </div>
 </template>
@@ -11,7 +11,7 @@ export default {
   computed: {},
   data() {
       return {
-          message:'Welcome to my Kanban board with Vue.js.'
+          message:'Welcome to my Kanban board with Laravel, Vue.js & SCSS.'
       }
   }
 };
