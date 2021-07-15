@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\BoardCardController;
 use App\Http\Controllers\BoardColumnsController;
+use App\Http\Resources\BoardCardResource;
 use App\Http\Resources\BoardColumnResource;
+use App\Models\BoardCard;
 use App\Models\BoardColumn;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +30,8 @@ Route::get('/board-columns', function (){
 
 Route::post('/board-columns', [BoardColumnsController::class, 'create']);
 Route::delete('/board-columns/{id}', [BoardColumnsController::class, 'delete']);
+
+Route::post('/board-cards', [BoardCardController::class, 'create']);
+Route::get('/board-cards', function (){
+    return BoardCardResource::collection(BoardCard::all());
+});

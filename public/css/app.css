@@ -55,6 +55,8 @@ body {
   background-color: #ffffff;
   margin-bottom: 0.5rem;
   padding: 0.5rem;
+  white-space: initial;
+  cursor: pointer;
 }
 .board .column-wrapper .column div.column-footer button {
   width: 100%;
@@ -62,4 +64,13 @@ body {
   text-align: left;
   background: transparent;
   cursor: pointer;
+}
+.board .column-wrapper .column div.column-footer > div div {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+.board .column-wrapper .column div.column-footer > div div button {
+  width: 2rem;
+  margin-right: 0.5rem;
 }

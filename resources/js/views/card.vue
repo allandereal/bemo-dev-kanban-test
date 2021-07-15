@@ -1,10 +1,16 @@
 <template>
-    <div class="card">I am a card</div>
+    <div class="card">{{ card.title }}</div>
 </template>
 
 <script>
     export default {
-        name: "card"
+        name: "card",
+        props: ['boardCard'],
+        data() {
+            return {
+                card: this.boardCard
+            }
+        }
     }
 </script>
 

@@ -1968,7 +1968,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "card"
+  name: "card",
+  props: ['boardCard'],
+  data: function data() {
+    return {
+      card: this.boardCard
+    };
+  }
 });
 
 /***/ }),
@@ -1985,6 +1991,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _views_card_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../views/card.vue */ "./resources/js/views/card.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2004,12 +2018,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "column",
-  props: ['column'],
+  props: ['boardColumn'],
+  data: function data() {
+    return {
+      newCardTitle: '',
+      addCardClicked: false,
+      column: this.boardColumn,
+      cards: this.boardColumn.cards
+    };
+  },
   methods: {
     emitDeleteColumnEvent: function emitDeleteColumnEvent() {
       this.$emit('delete-column', this.column);
+    },
+    toggleAddCard: function toggleAddCard() {
+      this.addCardClicked = !this.addCardClicked;
+    },
+    saveNewCard: function saveNewCard() {
+      var _this = this;
+
+      this.addCardClicked = false;
+      axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/board-cards', {
+        title: this.newCardTitle,
+        description: '',
+        board_column_id: this.column.id
+      }).then(function (response) {
+        _this.newCardTitle = '';
+        console.log(response.data.data);
+
+        _this.cards.push(response.data.data);
+      })["catch"](function (error) {
+        return console.log(error);
+      });
     }
   },
   components: {
@@ -2587,7 +2630,7 @@ var render = function() {
       _vm._l(_vm.columns, function(column) {
         return _c("column", {
           key: column.id,
-          attrs: { column: column },
+          attrs: { "board-column": column },
           on: { "delete-column": _vm.deleteColumn }
         })
       }),
@@ -2631,7 +2674,7 @@ var render = function() {
                   expression: "newBoardTitle"
                 }
               ],
-              attrs: { type: "text" },
+              attrs: { type: "text", placeholder: "Column title" },
               domProps: { value: _vm.newBoardTitle },
               on: {
                 input: function($event) {
@@ -2678,7 +2721,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card" }, [_vm._v("I am a card")])
+  return _c("div", { staticClass: "card" }, [_vm._v(_vm._s(_vm.card.title))])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -2706,7 +2749,7 @@ var render = function() {
   return _c("div", { staticClass: "column-wrapper" }, [
     _c("div", { staticClass: "column" }, [
       _c("div", { staticClass: "column-title" }, [
-        _c("span", [_vm._v(_vm._s(_vm.column.name))]),
+        _c("span", [_vm._v(_vm._s(_vm.column.title))]),
         _vm._v(" "),
         _c(
           "button",
@@ -2724,24 +2767,77 @@ var render = function() {
       _c(
         "div",
         { staticClass: "column-body" },
-        [_c("card"), _vm._v(" "), _c("card")],
+        _vm._l(_vm.cards, function(card) {
+          return _c("card", { key: card.id, attrs: { "board-card": card } })
+        }),
         1
       ),
       _vm._v(" "),
-      _vm._m(0)
+      _c("div", { staticClass: "column-footer" }, [
+        _c(
+          "button",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.addCardClicked,
+                expression: "!addCardClicked"
+              }
+            ],
+            on: { click: _vm.toggleAddCard }
+          },
+          [_vm._v("+ Add card")]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.addCardClicked,
+                expression: "addCardClicked"
+              }
+            ]
+          },
+          [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newCardTitle,
+                  expression: "newCardTitle"
+                }
+              ],
+              attrs: { placeholder: "Card title" },
+              domProps: { value: _vm.newCardTitle },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newCardTitle = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("div", [
+              _c("button", { on: { click: _vm.saveNewCard } }, [
+                _vm._v("Save")
+              ]),
+              _vm._v(" "),
+              _c("button", { on: { click: _vm.toggleAddCard } }, [_vm._v("x")])
+            ])
+          ]
+        )
+      ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "column-footer" }, [
-      _c("button", [_vm._v("+ Add card")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

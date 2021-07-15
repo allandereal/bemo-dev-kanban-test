@@ -62,6 +62,8 @@ body{
                     background-color: #ffffff;
                     margin-bottom: $inner-space;
                     padding: $inner-space;
+                    white-space: initial;
+                    cursor: pointer;
                 }
             }
 
@@ -72,6 +74,19 @@ body{
                     text-align: left;
                     background: transparent;
                     cursor: pointer;
+                }
+
+                > div {
+                    div {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: start;
+
+                        button {
+                            width: 2rem;
+                            margin-right: $inner-space;
+                        }
+                    }
                 }
             }
         }

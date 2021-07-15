@@ -1,10 +1,10 @@
 <template>
     <div class="board">
-        <column v-for="column in columns" :key="column.id" :column="column" @delete-column="deleteColumn"></column>
+        <column v-for="column in columns" :key="column.id" :board-column="column" @delete-column="deleteColumn"></column>
         <div class="new-board">
             <button @click="toggleAddColumn" v-show="!newBoardClicked">+ Add column</button>
             <div v-show="newBoardClicked">
-                <input v-model="newBoardTitle" type="text">
+                <input v-model="newBoardTitle" type="text" placeholder="Column title">
                 <button @click="saveNewColumn">Save</button>
                 <button @click="toggleAddColumn">x</button>
             </div>

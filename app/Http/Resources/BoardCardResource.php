@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class BoardColumnResource extends JsonResource
+class BoardCardResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,7 +17,8 @@ class BoardColumnResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'cards' => BoardCardResource::collection($this->cards)
+            'description' => $this->description,
+            'board_column_id' => $this->board_column_id,
         ];
     }
 }
