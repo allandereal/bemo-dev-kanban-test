@@ -28,14 +28,20 @@ class BoardCardController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'description' => ['required'],
             'id' => ['required'],
         ]);
 
-        BoardCard::findOrfail($request->id)->update([
-            'description' => $request->description,
-            'updated_at' => now()
-        ]);
+        $updates = ['updated_at' => now()];
+
+        if ($request->has('title')){
+            $updates['title'] = $request->title;
+        }
+
+        if ($request->has('description')){
+            $updates['description'] = $request->description;
+        }
+
+        BoardCard::findOrfail($request->id)->update($updates);
 
         return new BoardCardResource(BoardCard::findOrFail($request->id));
     }
