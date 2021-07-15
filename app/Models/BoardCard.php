@@ -9,5 +9,5 @@ class BoardCard extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['description', 'updated_at'];
+    protected $guarded = [];
 }
