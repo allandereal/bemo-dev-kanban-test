@@ -1,3 +1,31 @@
 body {
   background-color: white;
 }
+
+.board {
+  background-color: #d29034;
+  padding: 0.5rem;
+}
+.board .column {
+  background-color: #ebecf0;
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 272px;
+  height: 100%;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+.board .column div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.board .column div span:last-child {
+  transform: rotateY(0deg) rotate(45deg);
+  transition: transform 2s;
+}
+.board .column .card {
+  background-color: #ffffff;
+}

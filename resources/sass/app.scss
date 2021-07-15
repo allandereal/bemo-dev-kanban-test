@@ -1,5 +1,37 @@
-$board-bg: white;
+$board-bg: #d29034;
 
 body{
+    background-color: white;
+}
+
+.board {
     background-color: $board-bg;
+    padding: 0.5rem;
+
+    .column {
+        background-color: #ebecf0;
+        padding: 1rem 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 272px;
+        height: 100%;
+        border-radius: 3px;
+        box-sizing: border-box;
+
+        div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            span:last-child {
+                transform: rotateY(0deg) rotate(45deg);
+                transition: transform 2s;
+            }
+        }
+
+        .card {
+            background-color: #ffffff;
+        }
+    }
 }
