@@ -74,3 +74,10 @@ body {
   width: 2rem;
   margin-right: 0.5rem;
 }
+
+.card-modal {
+  padding: 1rem;
+}
+.card-modal > div > h4 {
+  display: inline-block;
+}

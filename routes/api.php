@@ -32,6 +32,7 @@ Route::post('/board-columns', [BoardColumnsController::class, 'create']);
 Route::delete('/board-columns/{id}', [BoardColumnsController::class, 'delete']);
 
 Route::post('/board-cards', [BoardCardController::class, 'create']);
+Route::put('/board-cards', [BoardCardController::class, 'update']);
 Route::get('/board-cards', function (){
     return BoardCardResource::collection(BoardCard::all());
 });

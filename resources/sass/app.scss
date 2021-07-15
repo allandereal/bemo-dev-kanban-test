@@ -92,3 +92,13 @@ body{
         }
     }
 }
+
+.card-modal {
+    padding: 1rem;
+
+    > div {
+        > h4 {
+            display: inline-block;
+        }
+    }
+}

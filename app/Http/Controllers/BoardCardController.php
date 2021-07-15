@@ -24,4 +24,19 @@ class BoardCardController extends Controller
 
         return new BoardCardResource(BoardCard::findOrFail($board_card->id));
     }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'description' => ['required'],
+            'id' => ['required'],
+        ]);
+
+        BoardCard::findOrfail($request->id)->update([
+            'description' => $request->description,
+            'updated_at' => now()
+        ]);
+
+        return new BoardCardResource(BoardCard::findOrFail($request->id));
+    }
 }

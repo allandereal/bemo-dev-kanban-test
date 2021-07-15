@@ -57,8 +57,9 @@
                         this.columns = this.columns.filter((val) => (val.id !== column.id));
                     })
                     .catch(error => (console.log(error)));
-            }
+            },
         },
+
         components: {
             Column
         }
