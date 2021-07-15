@@ -6,7 +6,9 @@
                 <button @click="emitDeleteColumnEvent()">+</button>
             </div>
             <div class="column-body">
-                <card v-for="card in cards" :key="card.id" :board-card="card"></card>
+                <draggable v-model="cards" group="people" @start="drag=true" @end="drag=false">
+                    <card v-for="card in cards" :key="card.id" :board-card="card"></card>
+                </draggable>
             </div>
             <div class="column-footer">
                 <button v-show="!addCardClicked" @click="toggleAddCard">+ Add card</button>
@@ -25,6 +27,7 @@
 <script>
     import Card from '../views/card.vue'
     import axios from "axios";
+    import draggable from 'vuedraggable'
 
     export default {
         name: "column",
@@ -60,7 +63,8 @@
             }
         },
         components: {
-            Card
+            Card,
+            draggable
         }
     }
 </script>
