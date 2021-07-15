@@ -11,175 +11,175 @@ body{
     height: 100%;
     margin: 0;
     padding: 0;
+}
 
-    #app {
-        position: relative;
-        height: 100%;
+#app {
+    position: relative;
+    height: 100%;
 
-        .heading {
-            font-size: larger;
-            font-weight: bold;
-            padding: $inner-space;
-            color: white;
+    .heading {
+        font-size: larger;
+        font-weight: bold;
+        padding: $inner-space;
+        color: white;
+    }
+
+    .board {
+        background-color: $board-bg;
+        padding: $inner-space 0;
+        white-space: nowrap;
+        width: 100%;
+
+        button:last-child {
+            display: inline-block;
         }
 
-        .board {
-            background-color: $board-bg;
-            padding: $inner-space 0;
-            white-space: nowrap;
-            width: 100%;
+        .new-column {
+            display: inline-block;
 
-            button:last-child {
-                display: inline-block;
-            }
-
-            .new-column {
-                display: inline-block;
-
-                > button {
-                    background-color: #dda95e;
-                    padding: $inner-space;
-                    color: white;
-                    border: none;
-                    min-width: 200px;
-                    text-align: left;
-                    font-size: .9rem;
-                    border-radius: 3px;
-                    margin-left: $inner-space;
-                    cursor: pointer;
-                }
-
-                > div {
-
-                    > input {
-                        padding: $inner-space;
-                        border-radius: 3px;
-                        border: none;
-
-                        &:focus {
-                            border: 2px solid $btn-blue-bg;
-                        }
-                    }
-                    > button {
-                        background-color: $btn-blue-bg;
-                        color: white;
-                        padding: $inner-space;
-                        border: none;
-                        border-radius: 3px;
-                        cursor: pointer;
-
-                        &:last-child {
-                            background: transparent;
-                            font-size: x-large;
-                            transform: $rotate45;
-                        }
-                    }
-                }
-            }
-
-            .column-wrapper {
-                display: inline-block;
-                background-color: #ebecf0;
-                width: 272px;
-                height: 100%;
+            > button {
+                background-color: #dda95e;
+                padding: $inner-space;
+                color: white;
+                border: none;
+                min-width: 200px;
+                text-align: left;
+                font-size: .9rem;
                 border-radius: 3px;
-                box-sizing: border-box;
-                padding: 0 $inner-space $inner-space;
                 margin-left: $inner-space;
+                cursor: pointer;
+            }
 
-                .column {
+            > div {
+
+                > input {
+                    padding: $inner-space;
+                    border-radius: 3px;
+                    border: none;
+
+                    &:focus {
+                        border: 2px solid $btn-blue-bg;
+                    }
+                }
+                > button {
+                    background-color: $btn-blue-bg;
+                    color: white;
+                    padding: $inner-space;
+                    border: none;
+                    border-radius: 3px;
+                    cursor: pointer;
+
+                    &:last-child {
+                        background: transparent;
+                        font-size: x-large;
+                        transform: $rotate45;
+                    }
+                }
+            }
+        }
+
+        .column-wrapper {
+            display: inline-block;
+            background-color: #ebecf0;
+            width: 272px;
+            height: 100%;
+            border-radius: 3px;
+            box-sizing: border-box;
+            padding: 0 $inner-space $inner-space;
+            margin-left: $inner-space;
+
+            .column {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                div.column-title {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    > span {
+                        font-weight: bold;
+                        font-size: 1rem;
+                    }
+
+                    button {
+                        transform: rotateY(0deg) rotate(45deg);
+                        transition: transform 2s;
+                        border: none;
+                        padding: $inner-space;
+                        font-size: larger;
+                        cursor: pointer;
+                        background: transparent;
+                    }
+                }
+
+                div.column-body {
                     display: flex;
                     flex-direction: column;
-                    justify-content: space-between;
+                    justify-content: start;
+                    margin-top: $inner-space;
 
-                    div.column-title {
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: space-between;
-                        align-items: center;
-
-                        > span {
-                            font-weight: bold;
-                            font-size: 1rem;
-                        }
-
-                        button {
-                            transform: rotateY(0deg) rotate(45deg);
-                            transition: transform 2s;
-                            border: none;
-                            padding: $inner-space;
-                            font-size: larger;
-                            cursor: pointer;
-                            background: transparent;
-                        }
+                    > div {
+                        overflow-y: auto;
+                        overflow-x: hidden;
+                        max-height: 85vh;
                     }
 
-                    div.column-body {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: start;
-                        margin-top: $inner-space;
+                    .card {
+                        background-color: #ffffff;
+                        border-radius: 3px;
+                        margin-bottom: $inner-space;
+                        padding: $inner-space;
+                        white-space: initial;
+                        cursor: pointer;
 
-                        > div {
-                            overflow-y: auto;
-                            overflow-x: hidden;
-                            max-height: 85vh;
-                        }
-
-                        .card {
-                            background-color: #ffffff;
-                            border-radius: 3px;
-                            margin-bottom: $inner-space;
-                            padding: $inner-space;
-                            white-space: initial;
-                            cursor: pointer;
-
-                            &:hover {
-                                background-color: #F3F4F6;
-                            }
+                        &:hover {
+                            background-color: #F3F4F6;
                         }
                     }
+                }
 
-                    div.column-footer {
-                        button {
-                            width: 100%;
-                            border: none;
-                            text-align: left;
-                            background: transparent;
-                            cursor: pointer;
-                            font-size: .9rem;
-                            color: #4a5568;
+                div.column-footer {
+                    button {
+                        width: 100%;
+                        border: none;
+                        text-align: left;
+                        background: transparent;
+                        cursor: pointer;
+                        font-size: .9rem;
+                        color: #4a5568;
+                    }
+
+                    > div {
+
+                        > textarea {
+                            resize: vertical;
+                            width: 98%;
+                            min-height: 54px;
                         }
 
-                        > div {
+                        div {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: start;
 
-                            > textarea {
-                                resize: vertical;
-                                width: 98%;
-                                min-height: 54px;
-                            }
+                            button {
+                                width: 2.8rem;
+                                margin-right: $inner-space;
+                                padding: .2rem $inner-space;
 
-                            div {
-                                display: flex;
-                                flex-direction: row;
-                                justify-content: start;
+                                &:first-child {
+                                    background-color: $btn-blue-bg;
+                                    color: white;
+                                    border-radius: 3px;
+                                }
 
-                                button {
-                                    width: 2.8rem;
-                                    margin-right: $inner-space;
-                                    padding: .2rem $inner-space;
-
-                                    &:first-child {
-                                        background-color: $btn-blue-bg;
-                                        color: white;
-                                        border-radius: 3px;
-                                    }
-
-                                    &:last-child {
-                                        transform: $rotate45;
-                                        font-size: x-large;
-                                        color: #4a5568;
-                                    }
+                                &:last-child {
+                                    transform: $rotate45;
+                                    font-size: x-large;
+                                    color: #4a5568;
                                 }
                             }
                         }
@@ -187,26 +187,25 @@ body{
                 }
             }
         }
+    }
 
-        #db-export-btn {
-            position: absolute;
-            bottom: 5rem;
-            right: 2rem;
+    #db-export-btn {
+        position: absolute;
+        bottom: 5rem;
+        right: 2rem;
 
-            a {
-                padding: 2rem;
-                border-radius: 10px;
-                background-color: whitesmoke;
-                color: #2d3748;
-                text-decoration: none;
+        a {
+            padding: 2rem;
+            border-radius: 10px;
+            background-color: whitesmoke;
+            color: #2d3748;
+            text-decoration: none;
 
-                &:hover {
-                    background-color: #E5E7EB;
-                }
+            &:hover {
+                background-color: #E5E7EB;
             }
         }
     }
-
 }
 
 .card-modal {
