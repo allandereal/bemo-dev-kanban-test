@@ -1,6 +1,6 @@
 <template>
     <div class="board">
-        <column></column>
+        <column v-for="column in columns" :key="column.id"></column>
     </div>
 </template>
 <script>
@@ -10,7 +10,16 @@
         computed: {},
         data() {
             return {
-                message:'This is a board.'
+                columns: [{id:1,name:1}, {id:2,name:2}]
+            }
+        },
+        created() {
+            this.fetchColumns();
+        },
+
+        methods: {
+            fetchColumns(){
+                console.log(1234);
             }
         },
         components: {
