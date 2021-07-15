@@ -8,8 +8,8 @@
         </div>
         <div>
             <h4>Description</h4>
-            <button v-show="hasDescription">edit</button>
-            <p @click="editDescriptionClicked = true" class="">{{ card.description ? card.description : 'Add detailed description' }}</p>
+            <button v-show="hasDescription && !editDescriptionClicked" @click="editDescriptionClicked = true">edit</button>
+            <p v-show="!editDescriptionClicked" @click="editDescriptionClicked = true" class="">{{ card.description ? card.description : 'Add detailed description' }}</p>
             <div v-show="editDescriptionClicked">
                 <textarea v-model="cardDescription" placeholder="Describe this card"></textarea>
                 <button @click="updateCardDescription">save</button>
