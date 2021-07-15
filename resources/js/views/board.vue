@@ -6,7 +6,7 @@
             <div v-show="newBoardClicked">
                 <input v-model="newBoardTitle" type="text" placeholder="Column title">
                 <button @click="saveNewColumn">Save</button>
-                <button @click="toggleAddColumn">x</button>
+                <button @click="toggleAddColumn">+</button>
             </div>
         </div>
     </div>

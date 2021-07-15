@@ -7,6 +7,7 @@
 - Navigate to the root folder and run the following commands
     - `composer update`
     - `npm install`
+    - `touch database/database.sqlite`
     - `php artisan migrate`
     - `npm run dev`
     - `php artisan serve`

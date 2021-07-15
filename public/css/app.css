@@ -1,100 +1,180 @@
 body {
-  background-color: white;
-}
-
-.board {
   background-color: #d29034;
+}
+body .heading {
+  font-size: larger;
+  font-weight: bold;
   padding: 0.5rem;
+  color: white;
+}
+body .board {
+  background-color: #d29034;
+  padding: 0.5rem 0;
   overflow-x: auto;
   white-space: nowrap;
   width: 100%;
-  min-height: 100vh;
 }
-.board button:last-child {
+body .board button:last-child {
   display: inline-block;
 }
-.board .new-board {
+body .board .new-board {
   display: inline-block;
 }
-.board .column-wrapper {
+body .board .new-board > button {
+  background-color: #dda95e;
+  padding: 0.5rem;
+  color: white;
+  border: none;
+  min-width: 200px;
+  text-align: left;
+  font-size: 0.9rem;
+  border-radius: 3px;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+body .board .new-board > div > input {
+  padding: 0.5rem;
+  border-radius: 3px;
+  border: none;
+}
+body .board .new-board > div > input:focus {
+  border: 2px solid #0079bf;
+}
+body .board .new-board > div > button {
+  background-color: #0079bf;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+body .board .new-board > div > button:last-child {
+  background: transparent;
+  font-size: x-large;
+  transform: rotateY(0deg) rotate(45deg);
+}
+body .board .column-wrapper {
   display: inline-block;
   background-color: #ebecf0;
   width: 272px;
   height: 100%;
   border-radius: 3px;
   box-sizing: border-box;
-  padding: 1rem 0.5rem;
+  padding: 0 0.5rem 0.5rem;
   margin-left: 0.5rem;
 }
-.board .column-wrapper .column {
+body .board .column-wrapper .column {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.board .column-wrapper .column div.column-title {
+body .board .column-wrapper .column div.column-title {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
-.board .column-wrapper .column div.column-title button {
+body .board .column-wrapper .column div.column-title > span {
+  font-weight: bold;
+  font-size: 1rem;
+}
+body .board .column-wrapper .column div.column-title button {
   transform: rotateY(0deg) rotate(45deg);
   transition: transform 2s;
   border: none;
   padding: 0.5rem;
-  font-size: large;
+  font-size: larger;
   cursor: pointer;
   background: transparent;
 }
-.board .column-wrapper .column div.column-body {
+body .board .column-wrapper .column div.column-body {
   display: flex;
   flex-direction: column;
   justify-content: start;
   margin-top: 0.5rem;
 }
-.board .column-wrapper .column div.column-body .card {
+body .board .column-wrapper .column div.column-body > div {
+  overflow-y: auto;
+}
+body .board .column-wrapper .column div.column-body .card {
   background-color: #ffffff;
+  border-radius: 3px;
   margin-bottom: 0.5rem;
   padding: 0.5rem;
   white-space: initial;
   cursor: pointer;
 }
-.board .column-wrapper .column div.column-footer button {
+body .board .column-wrapper .column div.column-body .card:hover {
+  background-color: #F3F4F6;
+}
+body .board .column-wrapper .column div.column-footer button {
   width: 100%;
   border: none;
   text-align: left;
   background: transparent;
   cursor: pointer;
+  font-size: 0.9rem;
+  color: #4a5568;
 }
-.board .column-wrapper .column div.column-footer > div div {
+body .board .column-wrapper .column div.column-footer > div > textarea {
+  resize: vertical;
+  width: 98%;
+  min-height: 54px;
+}
+body .board .column-wrapper .column div.column-footer > div div {
   display: flex;
   flex-direction: row;
   justify-content: start;
 }
-.board .column-wrapper .column div.column-footer > div div button {
-  width: 2rem;
+body .board .column-wrapper .column div.column-footer > div div button {
+  width: 2.8rem;
   margin-right: 0.5rem;
+  padding: 0.2rem 0.5rem;
 }
-
-.card-modal {
-  padding: 1rem;
+body .board .column-wrapper .column div.column-footer > div div button:first-child {
+  background-color: #0079bf;
+  color: white;
+  border-radius: 3px;
 }
-.card-modal > div > h4 {
-  display: inline-block;
+body .board .column-wrapper .column div.column-footer > div div button:last-child {
+  transform: rotateY(0deg) rotate(45deg);
+  font-size: x-large;
+  color: #4a5568;
 }
-
-#app {
+body #app {
   position: relative;
 }
-
-#db-export-btn {
+body #db-export-btn {
   position: absolute;
   bottom: 5rem;
   right: 2rem;
 }
-#db-export-btn a {
+body #db-export-btn a {
   padding: 2rem;
   border-radius: 10px;
   background-color: whitesmoke;
   color: #2d3748;
   text-decoration: none;
+}
+body #db-export-btn a:hover {
+  background-color: #E5E7EB;
+}
+
+.card-modal {
+  padding: 1rem;
+  background-color: #f4f5f7;
+  height: 100%;
+}
+.card-modal > h3 {
+  display: inline-block;
+  margin-top: 0;
+  color: #172b4d;
+}
+.card-modal > div > h4 {
+  color: #172b4d;
+}
+.card-modal > div > p {
+  background-color: #eaecef;
+  padding: 0.5rem;
+  border-radius: 3px;
 }
