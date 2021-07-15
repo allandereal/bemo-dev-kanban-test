@@ -21,6 +21,9 @@
         <div id="app">
             <app></app>
             <board></board>
+            <div id="db-export-btn">
+                <a href="{{ route('db_export') }}">Export DB</a>
+            </div>
         </div>
     </body>
     <script src="{{ mix('js/app.js') }}"></script>
