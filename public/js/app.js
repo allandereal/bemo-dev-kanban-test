@@ -1960,8 +1960,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       columns: [],
-      newBoardClicked: false,
-      newBoardTitle: ''
+      newColumnClicked: false,
+      newColumnTitle: ''
     };
   },
   created: function created() {
@@ -1978,16 +1978,16 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     toggleAddColumn: function toggleAddColumn() {
-      this.newBoardClicked = !this.newBoardClicked;
+      this.newColumnClicked = !this.newColumnClicked;
     },
     saveNewColumn: function saveNewColumn() {
       var _this2 = this;
 
-      this.newBoardClicked = false;
+      this.newColumnClicked = false;
       axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/board-columns', {
-        title: this.newBoardTitle
+        title: this.newColumnTitle
       }).then(function (response) {
-        _this2.newBoardTitle = '';
+        _this2.newColumnTitle = '';
         console.log(response);
 
         _this2.columns.push(response.data.data);
@@ -6629,7 +6629,7 @@ var render = function() {
         })
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "new-board" }, [
+      _c("div", { staticClass: "new-column" }, [
         _c(
           "button",
           {
@@ -6637,8 +6637,8 @@ var render = function() {
               {
                 name: "show",
                 rawName: "v-show",
-                value: !_vm.newBoardClicked,
-                expression: "!newBoardClicked"
+                value: !_vm.newColumnClicked,
+                expression: "!newColumnClicked"
               }
             ],
             on: { click: _vm.toggleAddColumn }
@@ -6653,8 +6653,8 @@ var render = function() {
               {
                 name: "show",
                 rawName: "v-show",
-                value: _vm.newBoardClicked,
-                expression: "newBoardClicked"
+                value: _vm.newColumnClicked,
+                expression: "newColumnClicked"
               }
             ]
           },
@@ -6664,18 +6664,18 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.newBoardTitle,
-                  expression: "newBoardTitle"
+                  value: _vm.newColumnTitle,
+                  expression: "newColumnTitle"
                 }
               ],
               attrs: { type: "text", placeholder: "Column title" },
-              domProps: { value: _vm.newBoardTitle },
+              domProps: { value: _vm.newColumnTitle },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.newBoardTitle = $event.target.value
+                  _vm.newColumnTitle = $event.target.value
                 }
               }
             }),
