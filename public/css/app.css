@@ -1,26 +1,36 @@
+html {
+  height: 100%;
+}
+
 body {
   background-color: #d29034;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
-body .heading {
+body #app {
+  position: relative;
+  height: 100%;
+}
+body #app .heading {
   font-size: larger;
   font-weight: bold;
   padding: 0.5rem;
   color: white;
 }
-body .board {
+body #app .board {
   background-color: #d29034;
   padding: 0.5rem 0;
-  overflow-x: auto;
   white-space: nowrap;
   width: 100%;
 }
-body .board button:last-child {
+body #app .board button:last-child {
   display: inline-block;
 }
-body .board .new-board {
+body #app .board .new-board {
   display: inline-block;
 }
-body .board .new-board > button {
+body #app .board .new-board > button {
   background-color: #dda95e;
   padding: 0.5rem;
   color: white;
@@ -32,15 +42,15 @@ body .board .new-board > button {
   margin-left: 0.5rem;
   cursor: pointer;
 }
-body .board .new-board > div > input {
+body #app .board .new-board > div > input {
   padding: 0.5rem;
   border-radius: 3px;
   border: none;
 }
-body .board .new-board > div > input:focus {
+body #app .board .new-board > div > input:focus {
   border: 2px solid #0079bf;
 }
-body .board .new-board > div > button {
+body #app .board .new-board > div > button {
   background-color: #0079bf;
   color: white;
   padding: 0.5rem;
@@ -48,12 +58,12 @@ body .board .new-board > div > button {
   border-radius: 3px;
   cursor: pointer;
 }
-body .board .new-board > div > button:last-child {
+body #app .board .new-board > div > button:last-child {
   background: transparent;
   font-size: x-large;
   transform: rotateY(0deg) rotate(45deg);
 }
-body .board .column-wrapper {
+body #app .board .column-wrapper {
   display: inline-block;
   background-color: #ebecf0;
   width: 272px;
@@ -63,22 +73,22 @@ body .board .column-wrapper {
   padding: 0 0.5rem 0.5rem;
   margin-left: 0.5rem;
 }
-body .board .column-wrapper .column {
+body #app .board .column-wrapper .column {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-body .board .column-wrapper .column div.column-title {
+body #app .board .column-wrapper .column div.column-title {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-body .board .column-wrapper .column div.column-title > span {
+body #app .board .column-wrapper .column div.column-title > span {
   font-weight: bold;
   font-size: 1rem;
 }
-body .board .column-wrapper .column div.column-title button {
+body #app .board .column-wrapper .column div.column-title button {
   transform: rotateY(0deg) rotate(45deg);
   transition: transform 2s;
   border: none;
@@ -87,16 +97,18 @@ body .board .column-wrapper .column div.column-title button {
   cursor: pointer;
   background: transparent;
 }
-body .board .column-wrapper .column div.column-body {
+body #app .board .column-wrapper .column div.column-body {
   display: flex;
   flex-direction: column;
   justify-content: start;
   margin-top: 0.5rem;
 }
-body .board .column-wrapper .column div.column-body > div {
+body #app .board .column-wrapper .column div.column-body > div {
   overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 85vh;
 }
-body .board .column-wrapper .column div.column-body .card {
+body #app .board .column-wrapper .column div.column-body .card {
   background-color: #ffffff;
   border-radius: 3px;
   margin-bottom: 0.5rem;
@@ -104,10 +116,10 @@ body .board .column-wrapper .column div.column-body .card {
   white-space: initial;
   cursor: pointer;
 }
-body .board .column-wrapper .column div.column-body .card:hover {
+body #app .board .column-wrapper .column div.column-body .card:hover {
   background-color: #F3F4F6;
 }
-body .board .column-wrapper .column div.column-footer button {
+body #app .board .column-wrapper .column div.column-footer button {
   width: 100%;
   border: none;
   text-align: left;
@@ -116,47 +128,44 @@ body .board .column-wrapper .column div.column-footer button {
   font-size: 0.9rem;
   color: #4a5568;
 }
-body .board .column-wrapper .column div.column-footer > div > textarea {
+body #app .board .column-wrapper .column div.column-footer > div > textarea {
   resize: vertical;
   width: 98%;
   min-height: 54px;
 }
-body .board .column-wrapper .column div.column-footer > div div {
+body #app .board .column-wrapper .column div.column-footer > div div {
   display: flex;
   flex-direction: row;
   justify-content: start;
 }
-body .board .column-wrapper .column div.column-footer > div div button {
+body #app .board .column-wrapper .column div.column-footer > div div button {
   width: 2.8rem;
   margin-right: 0.5rem;
   padding: 0.2rem 0.5rem;
 }
-body .board .column-wrapper .column div.column-footer > div div button:first-child {
+body #app .board .column-wrapper .column div.column-footer > div div button:first-child {
   background-color: #0079bf;
   color: white;
   border-radius: 3px;
 }
-body .board .column-wrapper .column div.column-footer > div div button:last-child {
+body #app .board .column-wrapper .column div.column-footer > div div button:last-child {
   transform: rotateY(0deg) rotate(45deg);
   font-size: x-large;
   color: #4a5568;
 }
-body #app {
-  position: relative;
-}
-body #db-export-btn {
+body #app #db-export-btn {
   position: absolute;
   bottom: 5rem;
   right: 2rem;
 }
-body #db-export-btn a {
+body #app #db-export-btn a {
   padding: 2rem;
   border-radius: 10px;
   background-color: whitesmoke;
   color: #2d3748;
   text-decoration: none;
 }
-body #db-export-btn a:hover {
+body #app #db-export-btn a:hover {
   background-color: #E5E7EB;
 }
 
