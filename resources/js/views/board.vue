@@ -1,7 +1,14 @@
 <template>
     <div class="board">
         <column v-for="column in columns" :key="column.id" :column="column" @delete-column="deleteColumn"></column>
-        <button @click="addColumn">+ Add column</button>
+        <div class="new-board">
+            <button @click="toggleAddColumn" v-show="!newBoardClicked">+ Add column</button>
+            <div v-show="newBoardClicked">
+                <input v-model="newBoardTitle" type="text">
+                <button @click="saveNewColumn">Save</button>
+                <button @click="toggleAddColumn">x</button>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -13,7 +20,9 @@
         computed: {},
         data() {
             return {
-                columns: []
+                columns: [],
+                newBoardClicked: false,
+                newBoardTitle: ''
             }
         },
         created() {
@@ -26,13 +35,18 @@
                     .then(response => (this.columns = response.data.data))
                     .catch(error => (console.log(error)));
             },
-            addColumn(){
+            toggleAddColumn(){
+                this.newBoardClicked = !this.newBoardClicked;
+            },
+            saveNewColumn(){
+                this.newBoardClicked = false;
                 axios.post('/api/board-columns', {
-                    title: 'test'
+                    title: this.newBoardTitle
                 })
                     .then(response => {
+                        this.newBoardTitle = '';
                         console.log(response);
-                        this.columns.push(response.data);
+                        this.columns.push(response.data.data);
                     })
                     .catch(error => (console.log(error)));
             },

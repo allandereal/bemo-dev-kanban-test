@@ -1882,6 +1882,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -1889,7 +1896,9 @@ __webpack_require__.r(__webpack_exports__);
   computed: {},
   data: function data() {
     return {
-      columns: []
+      columns: [],
+      newBoardClicked: false,
+      newBoardTitle: ''
     };
   },
   created: function created() {
@@ -1905,15 +1914,20 @@ __webpack_require__.r(__webpack_exports__);
         return console.log(error);
       });
     },
-    addColumn: function addColumn() {
+    toggleAddColumn: function toggleAddColumn() {
+      this.newBoardClicked = !this.newBoardClicked;
+    },
+    saveNewColumn: function saveNewColumn() {
       var _this2 = this;
 
+      this.newBoardClicked = false;
       axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/board-columns', {
-        title: 'test'
+        title: this.newBoardTitle
       }).then(function (response) {
+        _this2.newBoardTitle = '';
         console.log(response);
 
-        _this2.columns.push(response.data);
+        _this2.columns.push(response.data.data);
       })["catch"](function (error) {
         return console.log(error);
       });
@@ -2578,7 +2592,65 @@ var render = function() {
         })
       }),
       _vm._v(" "),
-      _c("button", { on: { click: _vm.addColumn } }, [_vm._v("+ Add column")])
+      _c("div", { staticClass: "new-board" }, [
+        _c(
+          "button",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.newBoardClicked,
+                expression: "!newBoardClicked"
+              }
+            ],
+            on: { click: _vm.toggleAddColumn }
+          },
+          [_vm._v("+ Add column")]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.newBoardClicked,
+                expression: "newBoardClicked"
+              }
+            ]
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newBoardTitle,
+                  expression: "newBoardTitle"
+                }
+              ],
+              attrs: { type: "text" },
+              domProps: { value: _vm.newBoardTitle },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newBoardTitle = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("button", { on: { click: _vm.saveNewColumn } }, [
+              _vm._v("Save")
+            ]),
+            _vm._v(" "),
+            _c("button", { on: { click: _vm.toggleAddColumn } }, [_vm._v("x")])
+          ]
+        )
+      ])
     ],
     2
   )

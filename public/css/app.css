@@ -13,6 +13,9 @@ body {
 .board button:last-child {
   display: inline-block;
 }
+.board .new-board {
+  display: inline-block;
+}
 .board .column-wrapper {
   display: inline-block;
   background-color: #ebecf0;
