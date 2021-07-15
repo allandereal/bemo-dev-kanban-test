@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BoardColumnsController;
+use App\Http\Resources\BoardColumnResource;
+use App\Models\BoardColumn;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,5 +22,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/board-columns', function (){
-    return '1';
+    return BoardColumnResource::collection(BoardColumn::all());
 });
+
+Route::post('/board-columns', [BoardColumnsController::class, 'create']);
+Route::delete('/board-columns/{id}', [BoardColumnsController::class, 'delete']);

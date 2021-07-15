@@ -2,8 +2,8 @@
     <div class=column-wrapper>
         <div class="column">
             <div class="column-title">
-                <span>title</span>
-                <button>+</button>
+                <span>{{ column.name }}</span>
+                <button @click="emitDeleteColumnEvent()">+</button>
             </div>
             <div class="column-body">
                 <card></card>
@@ -21,7 +21,12 @@
 
     export default {
         name: "column",
-
+        props: ['column'],
+        methods: {
+            emitDeleteColumnEvent(){
+                this.$emit('delete-column', this.column);
+            }
+        },
         components: {
             Card
         }

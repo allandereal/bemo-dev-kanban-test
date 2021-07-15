@@ -6,7 +6,12 @@ body {
   background-color: #d29034;
   padding: 0.5rem;
   overflow-x: auto;
-  overflow-y: hidden;
+  white-space: nowrap;
+  width: 100%;
+  min-height: 100vh;
+}
+.board button:last-child {
+  display: inline-block;
 }
 .board .column-wrapper {
   display: inline-block;
