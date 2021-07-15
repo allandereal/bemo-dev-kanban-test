@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class BoardCard extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['description', 'updated_at'];
 }

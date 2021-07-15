@@ -1,3 +1,83 @@
 body {
   background-color: white;
 }
+
+.board {
+  background-color: #d29034;
+  padding: 0.5rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
+  min-height: 100vh;
+}
+.board button:last-child {
+  display: inline-block;
+}
+.board .new-board {
+  display: inline-block;
+}
+.board .column-wrapper {
+  display: inline-block;
+  background-color: #ebecf0;
+  width: 272px;
+  height: 100%;
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding: 1rem 0.5rem;
+  margin-left: 0.5rem;
+}
+.board .column-wrapper .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.board .column-wrapper .column div.column-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.board .column-wrapper .column div.column-title button {
+  transform: rotateY(0deg) rotate(45deg);
+  transition: transform 2s;
+  border: none;
+  padding: 0.5rem;
+  font-size: large;
+  cursor: pointer;
+  background: transparent;
+}
+.board .column-wrapper .column div.column-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin-top: 0.5rem;
+}
+.board .column-wrapper .column div.column-body .card {
+  background-color: #ffffff;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  white-space: initial;
+  cursor: pointer;
+}
+.board .column-wrapper .column div.column-footer button {
+  width: 100%;
+  border: none;
+  text-align: left;
+  background: transparent;
+  cursor: pointer;
+}
+.board .column-wrapper .column div.column-footer > div div {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+.board .column-wrapper .column div.column-footer > div div button {
+  width: 2rem;
+  margin-right: 0.5rem;
+}
+
+.card-modal {
+  padding: 1rem;
+}
+.card-modal > div > h4 {
+  display: inline-block;
+}

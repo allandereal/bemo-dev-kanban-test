@@ -1,5 +1,104 @@
-$board-bg: white;
+$board-bg: #d29034;
+$inner-space: .5rem;
 
 body{
+    background-color: white;
+}
+
+.board {
     background-color: $board-bg;
+    padding: $inner-space;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+    min-height: 100vh;
+
+    button:last-child {
+        display: inline-block;
+    }
+
+    .new-board {
+        display: inline-block;
+    }
+
+    .column-wrapper {
+        display: inline-block;
+        background-color: #ebecf0;
+        width: 272px;
+        height: 100%;
+        border-radius: 3px;
+        box-sizing: border-box;
+        padding: 1rem $inner-space;
+        margin-left: $inner-space;
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            div.column-title {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                button {
+                    transform: rotateY(0deg) rotate(45deg);
+                    transition: transform 2s;
+                    border: none;
+                    padding: $inner-space;
+                    font-size: large;
+                    cursor: pointer;
+                    background: transparent;
+                }
+            }
+
+            div.column-body {
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                margin-top: $inner-space;
+
+                .card {
+                    background-color: #ffffff;
+                    margin-bottom: $inner-space;
+                    padding: $inner-space;
+                    white-space: initial;
+                    cursor: pointer;
+                }
+            }
+
+            div.column-footer {
+                button {
+                    width: 100%;
+                    border: none;
+                    text-align: left;
+                    background: transparent;
+                    cursor: pointer;
+                }
+
+                > div {
+                    div {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: start;
+
+                        button {
+                            width: 2rem;
+                            margin-right: $inner-space;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.card-modal {
+    padding: 1rem;
+
+    > div {
+        > h4 {
+            display: inline-block;
+        }
+    }
 }
