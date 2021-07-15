@@ -11,11 +11,6 @@
 
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-        <!-- Styles -->
-        <style>
-            /*styles here*/
-        </style>
-
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
@@ -23,6 +18,9 @@
         </style>
     </head>
     <body>
-        <div>Welcome to my Kanban board</div>
+        <div id="app">
+            <app></app>
+        </div>
     </body>
+    <script src="{{ mix('js/app.js') }}"></script>
 </html>
