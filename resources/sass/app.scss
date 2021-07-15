@@ -29,6 +29,9 @@ body{
         padding: $inner-space 0;
         white-space: nowrap;
         width: 100%;
+        min-height: 92vh;
+        overflow-x: auto;
+        overflow-y: hidden;
 
         button:last-child {
             display: inline-block;
