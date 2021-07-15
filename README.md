@@ -10,7 +10,7 @@
     - `php artisan migrate`
     - `npm run dev`
     - `php artisan serve`
-    - Then visit [http://127.0.0.1:800](http://127.0.0.1:800) in the browser
+    - Then visit [http://127.0.0.1:8000](http://127.0.0.1:8000) in the browser
 
 #### Requirements
 - npm
